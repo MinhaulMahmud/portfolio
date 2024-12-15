@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-primary text-gray-light font-sans;
+  }
+
+  ::selection {
+    @apply bg-accent/30 text-white;
+  }
+}
+
+@layer components {
+  .neon-glow {
+    text-shadow: 0 0 10px theme('colors.accent.DEFAULT'),
+                 0 0 20px theme('colors.accent.light'),
+                 0 0 30px theme('colors.accent.dark');
+  }
+
+  .neon-box {
+    box-shadow: 0 0 15px theme('colors.accent.dark/50'),
+                0 0 30px theme('colors.accent.light/30');
+  }
+
+  .gradient-border {
+    position: relative;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(to right, theme('colors.accent.dark'), theme('colors.accent.light'));
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  .hexagon-bg {
+    background-image: radial-gradient(theme('colors.accent.DEFAULT') 1px, transparent 1px);
+    background-size: 30px 30px;
+    opacity: 0.05;
+  }
+
+  .wave-pattern {
+    background: linear-gradient(45deg, theme('colors.secondary.dark') 25%, transparent 25%) -50px 0,
+                linear-gradient(-45deg, theme('colors.secondary.dark') 25%, transparent 25%) -50px 0,
+                linear-gradient(45deg, transparent 75%, theme('colors.secondary.dark') 75%) -50px 0,
+                linear-gradient(-45deg, transparent 75%, theme('colors.secondary.dark') 75%) -50px 0;
+    background-size: 100px 100px;
+    opacity: 0.05;
+  }
+
+  .glass-card {
+    @apply bg-secondary/20 backdrop-blur-sm border border-gray-dark/20 
+           hover:border-accent/30 transition-all duration-300;
+  }
+
+  .section-heading {
+    @apply text-3xl font-bold mb-6 bg-gradient-to-r from-accent-light to-accent 
+           text-transparent bg-clip-text;
+  }
+
+  .card-heading {
+    @apply text-xl font-semibold mb-2 text-accent-light;
+  }
+
+  .section-container {
+    @apply relative py-16 bg-gradient-to-b from-primary-dark to-primary;
+  }
+
+  .card {
+    @apply bg-secondary rounded-xl p-6 border border-gray-dark/20 
+           hover:border-accent/30 transition-all duration-300;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-primary-dark;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-b from-accent-dark to-accent rounded-full;
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Glass Effect */
+.glass {
+  background: rgba(30, 41, 59, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
