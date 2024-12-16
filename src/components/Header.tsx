@@ -22,7 +22,7 @@ const Header = () => {
           >
             <div className="w-full aspect-square rounded-full border-2 border-accent overflow-hidden">
               <img
-                src="src/assets/profile.jpg"
+                src="./assets/profile.jpg"
                 alt="Minhazul Mahmud"
                 className="w-full h-full object-cover"
               />

@@ -7,7 +7,7 @@ export const projects: Project[] = [
     description: 'A full-stack application for managing contacts with CRUD operations.',
     technologies: ['LARAVEL', 'SQL' ,'Bootstrap'],
     githubUrl: 'https://github.com/MinhaulMahmud/contact_app.git',
-    image: 'src/assets/Contact.png',
+    image: './Contact.png',
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export const projects: Project[] = [
     description: 'A productivity tool for organizing and tracking tasks.',
     technologies: ['LARAVEL', 'SQL' ,'Bootstrap', 'Vue.js'],
     githubUrl: 'https://github.com/MinhaulMahmud/Task-Management-App.git',
-    image: 'src/assets/Task.png',
+    image: './Task.png',
   },
   {
     id: 3,
@@ -23,7 +23,7 @@ export const projects: Project[] = [
     description: 'Desktop application for editing CSV and Excel files.',
     technologies: ['Python', 'Tkinter', 'Pandas'],
     githubUrl: 'https://github.com/MinhaulMahmud/CSV-Editor-using-python-TKINTER.git',
-    image: 'src/assets/Excel.png',
+    image: './Excel.png',
   },
   {
     id: 4,
@@ -31,7 +31,7 @@ export const projects: Project[] = [
     description: 'Computer vision application for detecting glasses using face recognition.',
     technologies: ['Python', 'OpenCV', 'MTCNN'],
     githubUrl: 'https://github.com/MinhaulMahmud/glass_det-with-MTCNN.git',
-    image: 'src/assets/Spectacles.png',
+    image: './Spectacles.png',
 
   },
   {
@@ -40,14 +40,14 @@ export const projects: Project[] = [
     description: 'Custom object detection system for license plates and car windows.',
     technologies: ['YOLOv8', 'Python', 'OpenCV'],
     githubUrl: 'https://github.com/MinhaulMahmud/Licenseplate_and_car_window_detection_using_YOLOv8m-seg.git',
-    image: 'src/assets/License.png'  },
+    image: './License.png'  },
   {
     id: 6,
     title: 'OMR Sheet Evaluation',
     description: 'Detection and evaluation system for OMR sheets.',
     technologies: ['OpenCV', 'EasyOCR', 'Python'],
     githubUrl: 'https://github.com/MinhaulMahmud/OMR_det_opencv.git',
-    image: 'src/assets/OMR.png',
+    image: './OMR.png',
   }
 ];
 
