@@ -51,7 +51,7 @@ const Experience = () => {
                 {getIcon(experience.type)}
               </div>
               <h3 className="card-heading">{experience.title}</h3>
-              <p className="text-primary text-sm mb-2">{experience.organization}</p>
+              <p className="text-purple-300 mb-4">{experience.organization}</p>
               <p className="text-gray-light text-sm mb-3">{experience.date}</p>
               <p className="text-gray-light">{experience.description}</p>
             </motion.div>

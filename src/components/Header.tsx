@@ -4,77 +4,81 @@ import { motion } from 'framer-motion';
 
 const Header = () => {
   return (
-    <header className="bg-primary py-12 relative overflow-hidden">
+    <header className="bg-primary py-16 relative overflow-hidden">
+      {/* Background Effects */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 hexagon-bg animate-pulse" />
-        <div className="absolute inset-0 wave-pattern" />
+        <div className="absolute inset-0 wave-pattern opacity-50" />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/90 to-primary" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col md:flex-row items-center gap-8">
-          {/* Profile Image */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
+        <div className="flex flex-col items-center text-center">
+          {/* Animated Title */}
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="relative w-32 md:w-40"
+            className="text-4xl md:text-6xl font-extrabold mb-4 text-white neon-glow"
           >
-            <div className="w-full aspect-square rounded-full border-2 border-accent overflow-hidden">
-              <img
-                src="./profile.jpg"
-                alt="Minhazul Mahmud"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </motion.div>
+            Minhazul Mahmud
+          </motion.h1>
 
-          {/* Info */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
+
+          {/* Subtitle */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="flex-1 text-center md:text-left"
+            className="text-xl md:text-2xl font-medium text-accent mb-6"
           >
-            <h1 className="text-3xl md:text-5xl font-bold mb-2 text-highlight neon-glow">
-              Minhazul Mahmud
-            </h1>
-            <p className="text-lg md:text-xl text-accent mb-4">
-              ML/AI Engineer & Web Developer
-            </p>
-            <p className="text-gray-300 mb-4 max-w-2xl text-sm md:text-base">
-              A passionate technologist specializing in machine learning, web development, and NLP research.
-              Currently based in Bangladesh.
-            </p>
-            <div className="flex justify-center md:justify-start gap-4">
-              <a
-                href="https://github.com/MinhaulMahmud"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-accent transition-colors"
-              >
-                <Github className="w-6 h-6" />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/minhazul-mahmud/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-accent transition-colors"
-              >
-                <Linkedin className="w-6 h-6" />
-              </a>
-              <a
-                href="mailto:minhaz.oj@gmail.com"
-                className="text-gray-300 hover:text-accent transition-colors"
-              >
-                <Mail className="w-6 h-6" />
-              </a>
-            </div>
+            ML/AI Engineer & Web Developer
+          </motion.p>
+
+          {/* Description */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-gray-300 max-w-3xl text-sm md:text-lg leading-relaxed mb-6"
+          >
+            A passionate technologist specializing in machine learning, web development, and NLP research. Currently based in Bangladesh.
+          </motion.p>
+
+          {/* Social Icons */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="flex gap-6"
+          >
+            <a
+              href="https://github.com/MinhaulMahmud"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-purple-400 transition-colors"
+            >
+              <Github className="w-8 h-8" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/minhazul-mahmud/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-300 hover:text-blue-400 transition-colors"
+            >
+              <Linkedin className="w-8 h-8" />
+            </a>
+            <a
+              href="mailto:minhaz.oj@gmail.com"
+              className="text-gray-300 hover:text-pink-400 transition-colors"
+            >
+              <Mail className="w-8 h-8" />
+            </a>
           </motion.div>
         </div>
       </div>
     </header>
   );
-}
+};
 
 export default Header;
