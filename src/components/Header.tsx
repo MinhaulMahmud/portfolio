@@ -4,76 +4,62 @@ import { motion } from 'framer-motion';
 
 const Header = () => {
   return (
-    <header className="bg-primary py-16 relative overflow-hidden">
-      {/* Background Effects */}
+    <header className="bg-primary py-12 relative overflow-hidden">
+      {/* Background Decorations */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 hexagon-bg animate-pulse" />
-        <div className="absolute inset-0 wave-pattern opacity-50" />
+        <div className="absolute inset-0 wave-pattern opacity-10" />
         <div className="absolute inset-0 bg-gradient-to-b from-primary/90 to-primary" />
       </div>
 
+      {/* Content */}
       <div className="container mx-auto px-4 relative z-10">
-        <div className="flex flex-col items-center text-center">
-          {/* Animated Title */}
-          <motion.h1
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl md:text-6xl font-extrabold mb-4 text-white neon-glow"
-          >
-            Minhazul Mahmud
-          </motion.h1>
-
-
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl md:text-2xl font-medium text-accent mb-6"
-          >
-            ML/AI Engineer & Web Developer
-          </motion.p>
-
-          {/* Description */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="text-gray-300 max-w-3xl text-sm md:text-lg leading-relaxed mb-6"
-          >
-            A passionate technologist specializing in machine learning, web development, and NLP research. Currently based in Bangladesh.
-          </motion.p>
-
-          {/* Social Icons */}
+        <div className="flex flex-col md:flex-row items-center gap-8">
+          {/* Info Section */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="flex gap-6"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="flex-1 text-center md:text-left"
           >
-            <a
-              href="https://github.com/MinhaulMahmud"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-purple-400 transition-colors"
-            >
-              <Github className="w-8 h-8" />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/minhazul-mahmud/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-300 hover:text-blue-400 transition-colors"
-            >
-              <Linkedin className="w-8 h-8" />
-            </a>
-            <a
-              href="mailto:minhaz.oj@gmail.com"
-              className="text-gray-300 hover:text-pink-400 transition-colors"
-            >
-              <Mail className="w-8 h-8" />
-            </a>
+            {/* Clean and Readable Name */}
+            <h1 className="text-4xl md:text-6xl font-extrabold mb-4 text-white neon-glow">
+              Minhazul Mahmud
+            </h1>
+            {/* Role */}
+            <p className="text-lg md:text-2xl text-accent mb-6">
+              ML/AI Engineer & Web Developer
+            </p>
+            {/* Short Description */}
+            <p className="text-gray-300 mb-6 max-w-2xl text-sm md:text-lg leading-relaxed">
+              A passionate technologist specializing in machine learning, web development, and NLP research. 
+              Currently based in Bangladesh.
+            </p>
+            {/* Social Icons */}
+            <div className="flex justify-center md:justify-start gap-6">
+              <a
+                href="https://github.com/MinhaulMahmud"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-accent transition-colors"
+              >
+                <Github className="w-8 h-8" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/minhazul-mahmud/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-accent transition-colors"
+              >
+                <Linkedin className="w-8 h-8" />
+              </a>
+              <a
+                href="mailto:minhaz.oj@gmail.com"
+                className="text-gray-300 hover:text-accent transition-colors"
+              >
+                <Mail className="w-8 h-8" />
+              </a>
+            </div>
           </motion.div>
         </div>
       </div>
