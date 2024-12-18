@@ -36,7 +36,7 @@ export interface Certification {
   title: string;
   issuer: string;
   date: string;
-  url?: string;
+  // url?: string;
 }
 
 export interface Award {

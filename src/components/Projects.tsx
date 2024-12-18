@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Github, ExternalLink } from 'lucide-react';
+import { Github } from 'lucide-react';
 import { projects } from '../data';
 
 const Projects = () => {
@@ -33,17 +33,12 @@ const Projects = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="group relative rounded-xl overflow-hidden"
+              className="group relative rounded-xl border border-gray-700 bg-gray-800 p-6"
             >
-              <div className="aspect-w-16 aspect-h-9">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="object-cover w-full h-full transform group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-6 flex flex-col justify-end transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+              <div className="flex flex-col h-full">
+                <h3 className="text-xl font-semibold mb-2 text-white">
+                  {project.title}
+                </h3>
                 <p className="text-gray-300 mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, techIndex) => (
@@ -55,7 +50,7 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
-                <div className="flex gap-4">
+                <div className="mt-auto">
                   <a
                     href={project.githubUrl}
                     target="_blank"
@@ -64,15 +59,6 @@ const Projects = () => {
                   >
                     <Github className="w-5 h-5" />
                     <span>Code</span>
-                  </a>
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-white/80 hover:text-purple-400 transition-colors"
-                  >
-                    <ExternalLink className="w-5 h-5" />
-                    <span>Live Demo</span>
                   </a>
                 </div>
               </div>

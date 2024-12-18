@@ -22,7 +22,7 @@ const Header = () => {
           >
             <div className="w-full aspect-square rounded-full border-2 border-accent overflow-hidden">
               <img
-                src="./assets/profile.jpg"
+                src="./profile.jpg"
                 alt="Minhazul Mahmud"
                 className="w-full h-full object-cover"
               />
@@ -44,7 +44,7 @@ const Header = () => {
             </p>
             <p className="text-gray-300 mb-4 max-w-2xl text-sm md:text-base">
               A passionate technologist specializing in machine learning, web development, and NLP research.
-              Currently based in USA.
+              Currently based in Bangladesh.
             </p>
             <div className="flex justify-center md:justify-start gap-4">
               <a
