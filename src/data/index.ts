@@ -20,7 +20,7 @@ export const projects: Project[] = [
   {
     id: 3,
     title: 'Excel File Editor',
-    description: 'Desktop application for editing CSV and Excel files.',
+    description: 'Just a fun project to explore Tkinter.',
     technologies: ['Python', 'Tkinter', 'Pandas'],
     githubUrl: 'https://github.com/MinhaulMahmud/CSV-Editor-using-python-TKINTER.git',
     image: './Excel.png',
@@ -48,6 +48,14 @@ export const projects: Project[] = [
     technologies: ['OpenCV', 'EasyOCR', 'Python'],
     githubUrl: 'https://github.com/MinhaulMahmud/OMR_det_opencv.git',
     image: './OMR.png',
+  },
+  {
+    id: 7,
+    title: 'JWT Authentication and REST API Integration',
+    description: 'Explored JWT token-based authentication and implemented REST API integration in a Laravel project.',
+    technologies: ['LARAVEL', 'JWT', 'REST API'],
+    githubUrl: 'https://github.com/MinhaulMahmud/laravel-jwt-auth-rest-api.git',
+    image: './JWT.png',
   }
 ];
 
