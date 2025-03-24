@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { Mail, MessageSquare, User, Send } from 'lucide-react';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const [ref, inView] = useInView({
@@ -17,14 +18,43 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log(formData);
+
+    // Format plain text message
+    const formattedMessage = `
+Name: ${formData.name}
+Email: ${formData.email}
+Message: ${formData.message}
+    `;
+
+    const templateParams = {
+      to_email: 'minhaz.oj@gmail.com',
+      from_name: formData.name,
+      from_email: formData.email,
+      message: formattedMessage,
+    };
+
+    emailjs
+      .send('service_54hvz0k', 'template_rco139h', templateParams, 'LjDN-YveDAHiRRp4q')
+      .then(
+        (response) => {
+          console.log('SUCCESS!', response.status, response.text);
+          // Optionally clear the form or show user feedback here
+          setFormData({
+            name: '',
+            email: '',
+            message: '',
+          });
+        },
+        (err) => {
+          console.error('FAILED...', err);
+        }
+      );
   };
 
   return (
     <section ref={ref} className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black" />
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
