@@ -5,10 +5,7 @@ import { Award, BookOpen } from 'lucide-react';
 import { certifications } from '../data';
 
 const Certifications = () => {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
+  const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   const containerVariants = {
     hidden: {},
@@ -16,17 +13,17 @@ const Certifications = () => {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    hidden: { opacity: 0, y: 40, scale: 0.95 },
     visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+      opacity: 1, y: 0, scale: 1,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] },
     },
   };
 
   return (
-    <section ref={ref} id="certifications" className="py-28 relative">
+    <section ref={ref} id="certifications" className="py-32 relative">
+      <div className="section-divider mb-32" />
+
       <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -34,9 +31,9 @@ const Certifications = () => {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           className="text-center mb-20"
         >
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-800 bg-gray-900/50 text-cyan-400 text-xs font-medium mb-6">
-            <Award className="w-3 h-3" />
-            TRAINING
+          <div className="section-label">
+            <Award className="w-3.5 h-3.5" />
+            Training
           </div>
           <h2 className="section-heading mb-6">Certifications & Training</h2>
           <p className="section-subtitle">
@@ -57,15 +54,15 @@ const Certifications = () => {
               className="glass-card rounded-2xl p-7 group"
             >
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-violet-500 flex items-center justify-center text-white shadow-lg shrink-0 group-hover:scale-110 transition-transform duration-500">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-[#0ea5e9] flex items-center justify-center text-[#050816] shadow-lg shrink-0 group-hover:scale-110 transition-transform duration-500">
                   <BookOpen className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white mb-1 group-hover:text-cyan-300 transition-colors duration-300">
+                  <h3 className="text-lg font-bold text-white mb-1 group-hover:text-accent transition-colors duration-300">
                     {cert.title}
                   </h3>
-                  <p className="text-sm text-violet-400 mb-1">{cert.issuer}</p>
-                  <p className="text-xs text-gray-500 mb-3">{cert.date}</p>
+                  <p className="text-sm text-accent/60 font-medium mb-1">{cert.issuer}</p>
+                  <p className="text-xs text-gray-500 font-mono mb-3">{cert.date}</p>
                   {cert.description && (
                     <p className="text-sm text-gray-400 leading-relaxed">
                       {cert.description}
