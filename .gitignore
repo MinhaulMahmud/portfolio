@@ -23,4 +23,6 @@
 # *.sln
 # *.sw?
 *.bolt
+*context
+
 

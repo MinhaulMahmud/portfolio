@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Brain, Code, Globe } from 'lucide-react';
+import { Brain, Code, Globe, Sparkles } from 'lucide-react';
 
 const About = () => {
   const [ref, inView] = useInView({
@@ -11,60 +11,91 @@ const About = () => {
 
   const features = [
     {
-      icon: <Brain className="w-8 h-8" />,
-      title: "AI/ML Expertise",
-      description: "Specialized in developing intelligent solutions using cutting-edge machine learning techniques."
+      icon: <Brain className="w-7 h-7" />,
+      title: 'AI & Machine Learning',
+      description: 'Building intelligent solutions with TensorFlow, Scikit-learn, YOLO, and OpenCV for real-world computer vision and NLP tasks.',
+      gradient: 'from-cyan-500 to-blue-500',
     },
     {
-      icon: <Code className="w-8 h-8" />,
-      title: "Full-Stack Development",
-      description: "Experienced in building robust web applications with modern technologies."
+      icon: <Code className="w-7 h-7" />,
+      title: 'Full-Stack Development',
+      description: 'Crafting robust web applications with Laravel, React, Next.js, and modern frontend/backend technologies.',
+      gradient: 'from-violet-500 to-purple-500',
     },
     {
-      icon: <Globe className="w-8 h-8" />,
-      title: "NLP Research",
-      description: "Focused on advancing natural language processing capabilities through innovative research."
-    }
+      icon: <Globe className="w-7 h-7" />,
+      title: 'NLP Research',
+      description: 'Published IEEE research on sentiment analysis. Advancing NLP capabilities through innovative ML algorithms.',
+      gradient: 'from-pink-500 to-rose-500',
+    },
   ];
 
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+    },
+  };
+
   return (
-    <section ref={ref} className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-900 to-black" />
-      
-      <div className="container mx-auto px-4 relative z-10">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+    <section ref={ref} id="about" className="py-28 relative">
+      <div className="container mx-auto px-6 relative z-10">
+        {/* Section header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
-            About Me
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-800 bg-gray-900/50 text-cyan-400 text-xs font-medium mb-6">
+            <Sparkles className="w-3 h-3" />
+            ABOUT ME
+          </div>
+          <h2 className="section-heading mb-6">
+            Turning Ideas into Reality
           </h2>
-          <p className="text-gray-300 max-w-3xl mx-auto text-lg">
-            I'm a passionate technologist on a mission to push the boundaries of what's possible with AI 
-            and web development. My journey in computer science has been driven by curiosity and a 
-            desire to create meaningful impact through technology.
+          <p className="section-subtitle">
+            A results-driven Computer Science graduate specializing in NLP and full-stack web development. 
+            Passionate about leveraging technology to solve complex business challenges and create meaningful impact.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Feature cards */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? 'visible' : 'hidden'}
+          className="grid md:grid-cols-3 gap-6 lg:gap-8"
+        >
           {features.map((feature, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-xl border border-gray-700 hover:border-purple-500/50 transition-all duration-300"
+              variants={itemVariants}
+              className="glass-card rounded-2xl p-8 group cursor-default"
             >
-              <div className="bg-gradient-to-br from-blue-500 to-purple-500 w-16 h-16 rounded-lg flex items-center justify-center mb-6 mx-auto">
+              <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-6 text-white shadow-lg group-hover:scale-110 transition-transform duration-500`}>
                 {feature.icon}
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-center">{feature.title}</h3>
-              <p className="text-gray-400 text-center">{feature.description}</p>
+              <h3 className="text-xl font-semibold text-white mb-3 group-hover:text-cyan-300 transition-colors duration-300">
+                {feature.title}
+              </h3>
+              <p className="text-gray-400 leading-relaxed text-sm">
+                {feature.description}
+              </p>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
