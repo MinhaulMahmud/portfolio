@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { Award, ExternalLink } from 'lucide-react';
+import { Award, BookOpen } from 'lucide-react';
 import { certifications } from '../data';
 
 const Certifications = () => {
@@ -10,55 +10,72 @@ const Certifications = () => {
     threshold: 0.1,
   });
 
+  const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.15 } },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
+    },
+  };
+
   return (
-    <section ref={ref} className="py-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-black to-gray-900" />
-      
-      <div className="container mx-auto px-4 relative z-10">
+    <section ref={ref} id="certifications" className="py-28 relative">
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
-            Certifications
-          </h2>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gray-800 bg-gray-900/50 text-cyan-400 text-xs font-medium mb-6">
+            <Award className="w-3 h-3" />
+            TRAINING
+          </div>
+          <h2 className="section-heading mb-6">Certifications & Training</h2>
+          <p className="section-subtitle">
+            Professional development courses that sharpened my technical expertise.
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {certifications.map((cert, index) => (
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? 'visible' : 'hidden'}
+          className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto"
+        >
+          {certifications.map((cert) => (
             <motion.div
               key={cert.id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 border border-gray-700 hover:border-purple-500/50 transition-all duration-300"
+              variants={itemVariants}
+              className="glass-card rounded-2xl p-7 group"
             >
               <div className="flex items-start gap-4">
-                <div className="bg-gradient-to-br from-blue-500 to-purple-500 p-3 rounded-lg">
-                  <Award className="w-6 h-6" />
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-violet-500 flex items-center justify-center text-white shadow-lg shrink-0 group-hover:scale-110 transition-transform duration-500">
+                  <BookOpen className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">{cert.title}</h3>
-                  <p className="text-gray-400 mb-2">{cert.issuer}</p>
-                  <p className="text-purple-300 mb-4">{cert.date}</p>
-                  {cert.url && (
-                    <a
-                      href={cert.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-blue-400 hover:text-purple-400 transition-colors"
-                    >
-                      <span>View Certificate</span>
-                      <ExternalLink className="w-4 h-4" />
-                    </a>
+                  <h3 className="text-lg font-bold text-white mb-1 group-hover:text-cyan-300 transition-colors duration-300">
+                    {cert.title}
+                  </h3>
+                  <p className="text-sm text-violet-400 mb-1">{cert.issuer}</p>
+                  <p className="text-xs text-gray-500 mb-3">{cert.date}</p>
+                  {cert.description && (
+                    <p className="text-sm text-gray-400 leading-relaxed">
+                      {cert.description}
+                    </p>
                   )}
                 </div>
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

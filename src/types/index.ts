@@ -3,8 +3,10 @@ export interface Project {
   title: string;
   description: string;
   technologies: string[];
-  githubUrl: string;
-  image: string;
+  githubUrl?: string;
+  liveUrl?: string;
+  image?: string;
+  featured?: boolean;
 }
 
 export interface Education {
@@ -18,10 +20,9 @@ export interface Education {
 export interface Experience {
   id: number;
   title: string;
-  organization: string;
-  date: string;
-  description: string;
-  type: 'seminar' | 'research' | 'leadership';
+  company: string;
+  duration: string;
+  responsibilities: string[];
 }
 
 export interface Skill {
@@ -36,7 +37,18 @@ export interface Certification {
   title: string;
   issuer: string;
   date: string;
-  // url?: string;
+  description?: string;
+}
+
+export interface Research {
+  id: number;
+  title: string;
+  type: 'publication' | 'paid';
+  venue?: string;
+  doi?: string;
+  link?: string;
+  focus: string;
+  year: string;
 }
 
 export interface Award {
