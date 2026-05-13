@@ -68,12 +68,12 @@ const Experience = () => {
                     <h3 className="text-xl font-bold text-white group-hover:text-accent transition-colors duration-300">
                       {exp.title}
                     </h3>
-                    <div className="flex items-center gap-2 text-accent/70 mt-1.5">
+                    <div className="flex items-center gap-2 text-accent/80 mt-1.5">
                       <Building2 className="w-4 h-4" />
                       <span className="text-sm font-medium">{exp.company}</span>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 text-gray-500 text-sm shrink-0 font-mono">
+                  <div className="flex items-center gap-2 text-gray-300 text-sm shrink-0 font-mono">
                     <Calendar className="w-3.5 h-3.5" />
                     <span>{exp.duration}</span>
                   </div>
@@ -86,7 +86,7 @@ const Experience = () => {
                       initial={{ opacity: 0, x: -15 }}
                       animate={inView ? { opacity: 1, x: 0 } : {}}
                       transition={{ duration: 0.5, delay: 0.6 + index * 0.15 + i * 0.08 }}
-                      className="flex items-start gap-3 text-sm text-gray-400"
+                      className="flex items-start gap-3 text-sm text-gray-200"
                     >
                       <span className="text-accent mt-1 shrink-0">▹</span>
                       <span>{task}</span>

@@ -31,7 +31,7 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#050816] text-gray-200 relative">
+    <div className="min-h-screen bg-[#050816] text-gray-200 relative overflow-x-hidden">
       {/* Ambient orbs */}
       <div className="orb orb-teal w-[700px] h-[700px] -top-[300px] -left-[250px] animate-orb" />
       <div className="orb orb-violet w-[600px] h-[600px] top-[30%] -right-[200px] animate-orb" style={{ animationDelay: '4s' }} />

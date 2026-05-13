@@ -63,12 +63,12 @@ const Education = () => {
                     {edu.degree}
                   </h3>
                 </div>
-                <div className="flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-gray-400">
+                <div className="flex flex-wrap items-center gap-x-5 gap-y-1 text-sm text-gray-300">
                   <span className="flex items-center gap-1.5">
                     <MapPin className="w-3.5 h-3.5 text-violet-400" />
                     {edu.institution}, {edu.location}
                   </span>
-                  <span className="flex items-center gap-1.5 font-mono text-xs text-gray-500">
+                  <span className="flex items-center gap-1.5 font-mono text-xs text-gray-300">
                     <Calendar className="w-3.5 h-3.5 text-violet-400" />
                     {edu.year}
                   </span>
