@@ -24,5 +24,7 @@
 # *.sw?
 *.bolt
 *context
+*.github
+
 
 
