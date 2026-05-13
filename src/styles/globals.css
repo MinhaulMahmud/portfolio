@@ -6,13 +6,13 @@
 
 @layer base {
   body {
-    @apply bg-[#050816] text-gray-200 antialiased;
+    @apply bg-white text-gray-900 antialiased;
     font-family: 'Space Grotesk', system-ui, sans-serif;
   }
 
   ::selection {
     background: rgba(100, 255, 218, 0.2);
-    color: #ccd6f6;
+    color: #050816;
   }
 }
 
@@ -38,10 +38,10 @@
 
   /* ─── Premium glass card ─── */
   .glass-card {
-    background: linear-gradient(135deg, rgba(17, 25, 54, 0.7), rgba(10, 15, 36, 0.7));
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(248, 250, 252, 0.7));
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(100, 255, 218, 0.06);
+    border: 1px solid rgba(100, 255, 218, 0.18);
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;

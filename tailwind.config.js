@@ -11,14 +11,14 @@ export default {
         accent: '#64ffda',
         'accent-dim': 'rgba(100, 255, 218, 0.1)',
         surface: {
-          DEFAULT: '#0a0f24',
-          dark: '#050816',
-          light: '#111936',
+          DEFAULT: '#ffffff',
+          dark: '#f8fafc',
+          light: '#f1f5f9',
         },
         navy: {
-          DEFAULT: '#0a192f',
-          light: '#112240',
-          lighter: '#233554',
+          DEFAULT: '#f0f9ff',
+          light: '#e0f2fe',
+          lighter: '#c7e9fb',
         },
       },
       animation: {
